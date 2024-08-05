@@ -5,7 +5,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlternativeVoteTest
+namespace VoteSystems
 {
     public static class AlternativeVote
     {

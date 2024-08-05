@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AlternativeVoteTest
+namespace VoteSystems
 {
     public class VoteArray
     {
@@ -90,21 +90,11 @@ namespace AlternativeVoteTest
             _firstPreferences = firstPreferences;
         }
 
-        public string GetMostPopularCandidate()
-        {
-            var mostPopularCandidate = _firstPreferences
-                                        .OrderByDescending(pair => pair.Value)
-                                        .FirstOrDefault();
-            return mostPopularCandidate.Key;
-        }
+        public string GetMostPopularCandidate() =>
+            _firstPreferences.OrderByDescending(pair => pair.Value).FirstOrDefault().Key;
 
-        public string GetLeastPopularCandidate()
-        {
-            var leastPopularCandidate = _firstPreferences
-                                        .OrderBy(pair => pair.Value)
-                                        .FirstOrDefault();
-            return leastPopularCandidate.Key;
-        }
+        public string GetLeastPopularCandidate() =>
+            _firstPreferences.OrderBy(pair => pair.Value).FirstOrDefault().Key;
 
         public bool HasWinner()
         {

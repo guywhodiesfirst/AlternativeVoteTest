@@ -1,4 +1,4 @@
-﻿namespace AlternativeVoteTest
+﻿namespace VoteSystems
 {
 
     public static class Program
