@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace VoteSystems.Interfaces
 {
-    public interface IVoteArray<TCollection, TVote>
+    public interface IVoteArray<TVote>
     {
-        TCollection Votes { get; set; }
+        List<TVote> Votes { get; set; }
+        Dictionary<string, int> FirstPreferences { get; }
         void Add(TVote vote);
-        string ToString();
+        string FirstPreferencesToString();
         string GetMostPopularCandidate();
         string GetLeastPopularCandidate();
     }
