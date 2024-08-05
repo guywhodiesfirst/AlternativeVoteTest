@@ -5,13 +5,13 @@ namespace VoteSystems
 
     public static class Program
     {
-        public static void Main(string[] args ) 
+        public static void Main() 
         {
-            InstantRunoffVoteArray votes = new InstantRunoffVoteArray();
-            SeedArray seed = new SeedArray();
+            InstantRunoffVoteArray votes = new();
+            SeedArray seed = new();
             seed.Seed(votes, 100);
-            //votes.PrintVotes();
-            InstantRunoffSystem.DefineWinner(votes);
+            InstantRunoffSystem instantRunoffSystem = new();
+            instantRunoffSystem.DefineWinner(votes);
         }
     }
 }

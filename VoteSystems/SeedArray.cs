@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Security.Cryptography;
 using VoteSystems.InstantRunoff;
 
 namespace VoteSystems
@@ -27,6 +22,7 @@ namespace VoteSystems
             }
         }
 
+        // TODO: left-wing voters lean to vote for other left-wing parties and vice-versa
         private InstantRunoffVote GenerateRandomVote()
         {
             var preferences = new int[_candidates.Length];

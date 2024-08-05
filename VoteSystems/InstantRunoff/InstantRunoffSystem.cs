@@ -1,10 +1,12 @@
-﻿namespace VoteSystems.InstantRunoff
+﻿using VoteSystems.BaseClasses;
+
+namespace VoteSystems.InstantRunoff
 {
-    public static class InstantRunoffSystem
+    public class InstantRunoffSystem : BaseVotingSystem<InstantRunoffVoteArray>
     {
-        public static string DefineWinner(InstantRunoffVoteArray votes)
+        public override string DefineWinner(InstantRunoffVoteArray votes)
         {
-            InstantRunoffVoteArray workingVotes = new InstantRunoffVoteArray(votes);
+            InstantRunoffVoteArray workingVotes = new(votes);
             while (!workingVotes.HasWinner())
             {
                 Console.WriteLine(workingVotes.FirstPreferencesToString());

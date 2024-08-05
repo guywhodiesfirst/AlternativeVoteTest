@@ -1,5 +1,4 @@
 ﻿using VoteSystems.BaseClasses;
-using VoteSystems.Interfaces;
 
 namespace VoteSystems.InstantRunoff
 {
@@ -38,7 +37,6 @@ namespace VoteSystems.InstantRunoff
                 }
             }
         }
-
 
         public bool HasWinner()
         {
