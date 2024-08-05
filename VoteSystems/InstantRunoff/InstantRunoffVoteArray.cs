@@ -6,7 +6,6 @@ namespace VoteSystems.InstantRunoff
     {
         public int VoteCount => Votes.Count;
         public int CandidateCount => Votes[0].CandidateCount;
-
         public InstantRunoffVoteArray() : base() { }
         public InstantRunoffVoteArray(InstantRunoffVoteArray other) : base(other) {}
         public void EliminateCandidate(string candidateName)
@@ -22,7 +21,6 @@ namespace VoteSystems.InstantRunoff
             }
             SetFirstPreferences();
         }
-
         protected override void SetFirstPreferences()
         {
             FirstPreferences.Clear();
@@ -37,7 +35,6 @@ namespace VoteSystems.InstantRunoff
                 }
             }
         }
-
         public bool HasWinner()
         {
             int votesToWin = VoteCount / 2 + 1;

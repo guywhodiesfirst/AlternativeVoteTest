@@ -1,4 +1,5 @@
 ﻿using VoteSystems.InstantRunoff;
+using VoteSystems.Results;
 
 namespace VoteSystems
 {
@@ -11,7 +12,12 @@ namespace VoteSystems
             SeedArray seed = new();
             seed.Seed(votes, 100);
             InstantRunoffSystem instantRunoffSystem = new();
-            instantRunoffSystem.DefineWinner(votes);
+            ConstituencyResult result = instantRunoffSystem.DefineWinnerInConstituency(votes);
+            Console.WriteLine($"Winner: {result.Winner}");
+            foreach(string logEntry in result.Log)
+            {
+                Console.WriteLine(logEntry);
+            }
         }
     }
 }

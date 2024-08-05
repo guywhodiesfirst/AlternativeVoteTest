@@ -1,24 +1,25 @@
 ﻿using VoteSystems.BaseClasses;
+using VoteSystems.Results;
 
 namespace VoteSystems.InstantRunoff
 {
     public class InstantRunoffSystem : BaseVotingSystem<InstantRunoffVoteArray>
     {
-        public override string DefineWinner(InstantRunoffVoteArray votes)
+        public override ConstituencyResult DefineWinnerInConstituency(InstantRunoffVoteArray votes)
         {
             InstantRunoffVoteArray workingVotes = new(votes);
+            List<string> log = new();
             while (!workingVotes.HasWinner())
             {
-                Console.WriteLine(workingVotes.FirstPreferencesToString());
+                string logEntry = workingVotes.FirstPreferencesToString();
                 string candidateToEliminate = workingVotes.GetLeastPopularCandidate();
-                Console.WriteLine($"Candidate to eliminate: {candidateToEliminate}");
+                logEntry += $"Candidate eliminated: {candidateToEliminate}\n";
+                log.Add(logEntry);
                 workingVotes.EliminateCandidate(candidateToEliminate);
-                Console.WriteLine();
             }
 
-            Console.WriteLine(workingVotes.FirstPreferencesToString());
-            Console.WriteLine($"Winner: {workingVotes.GetMostPopularCandidate()}");
-            return workingVotes.GetMostPopularCandidate();
+            log.Add(workingVotes.FirstPreferencesToString());
+            return new ConstituencyResult(log, workingVotes.GetMostPopularCandidate());
         }
     }
 }

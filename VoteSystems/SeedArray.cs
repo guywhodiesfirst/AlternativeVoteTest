@@ -22,7 +22,8 @@ namespace VoteSystems
             }
         }
 
-        // TODO: left-wing voters lean to vote for other left-wing parties and vice-versa
+        // TODO: add parties class:
+        // left-wing voters lean to vote for other left-wing parties and vice-versa
         private InstantRunoffVote GenerateRandomVote()
         {
             var preferences = new int[_candidates.Length];

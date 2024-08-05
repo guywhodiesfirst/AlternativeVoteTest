@@ -1,13 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using VoteSystems.Results;
 
 namespace VoteSystems.Interfaces
 {
     public interface IVotingSystem<TVoteArray>
     {
-        string DefineWinner(TVoteArray voteArray);
+        ConstituencyResult DefineWinnerInConstituency(TVoteArray voteArray);
     }
 }
