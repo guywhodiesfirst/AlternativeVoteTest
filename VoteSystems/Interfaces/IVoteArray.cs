@@ -8,7 +8,7 @@ namespace VoteSystems.Interfaces
 {
     public interface IVoteArray<TCollection, TVote>
     {
-        TCollection votes { get; set; }
+        TCollection Votes { get; set; }
         void Add(TVote vote);
         string ToString();
         string GetMostPopularCandidate();

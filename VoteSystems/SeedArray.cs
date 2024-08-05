@@ -4,13 +4,14 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using VoteSystems.InstantRunoff;
 
 namespace VoteSystems
 {
     public class SeedArray
     {
         private readonly string[] _candidates = new string[] {"Alice", "Bob", "Senya", "Maria", "Boris", "Vitalii"};
-        public void Seed(VoteArray votes, int numOfVotes)
+        public void Seed(InstantRunoffVoteArray votes, int numOfVotes)
         {
             for(int i = 0; i < numOfVotes; i++)
             {
@@ -18,7 +19,7 @@ namespace VoteSystems
             }
         }
 
-        private Vote GenerateRandomVote()
+        private InstantRunoffVote GenerateRandomVote()
         {
             var preferences = new int[_candidates.Length];
             int count = RandomNumberGenerator.GetInt32(3) + 3;
@@ -39,7 +40,7 @@ namespace VoteSystems
                 voteDictionary.Add(_candidates[i], preferences[i]);
             }
 
-            return new Vote(voteDictionary);
+            return new InstantRunoffVote(voteDictionary);
         }
         private int GetRandomIndex()
         {
