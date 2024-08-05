@@ -54,25 +54,12 @@ namespace VoteSystems.InstantRunoff
             _firstPreferences.Clear();
             if(VoteCount > 0) 
             {
-                var voteExample = Votes.FirstOrDefault();
-                if (voteExample != null)
-                {
-                    for (int i = 0; i < voteExample.CandidateCount; i++)
-                    {
-                        _firstPreferences.Add(voteExample[i].Key, 0);
-                    }
+                var firstVote = Votes.First();
+                var candidates = firstVote.Bulletin.Select(c => c.Key).Distinct();
 
-                    for (int i = 0; i < Votes.Count; i++)
-                    {
-                        var vote = Votes[i];
-                        for (int j = 0; j < Votes[i].CandidateCount; j++)
-                        {
-                            if (vote[j].Value == 1)
-                            {
-                                _firstPreferences[vote[j].Key]++;
-                            }
-                        }
-                    }
+                foreach (var candidate in candidates)
+                {
+                    _firstPreferences[candidate] = Votes.Count(vote => vote.Bulletin[candidate] == 1);
                 }
             }
         }
