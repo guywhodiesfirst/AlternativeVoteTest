@@ -26,12 +26,14 @@ namespace VoteSystems.InstantRunoff
             SetFirstPreferences();
         }
 
-        public void PrintFirstPreferences()
+        public string FirstPreferencesToString()
         {
+            string firstPreferencesAsString = "";
             foreach (var candidate in _firstPreferences)
             {
-                Console.WriteLine($"{candidate.Key}: {candidate.Value}");
+                firstPreferencesAsString += $"{candidate.Key}: {candidate.Value}\n";
             }
+            return firstPreferencesAsString;
         }
 
         public void EliminateCandidate(string candidateName)

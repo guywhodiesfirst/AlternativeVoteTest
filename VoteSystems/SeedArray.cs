@@ -10,7 +10,15 @@ namespace VoteSystems
 {
     public class SeedArray
     {
-        private readonly string[] _candidates = new string[] {"Alice", "Bob", "Senya", "Maria", "Boris", "Vitalii"};
+        private readonly string[] _candidates = new string[] 
+        {
+            "Alice (Conservative)", 
+            "Bob (Liberal)", 
+            "Senya (Social-democrat)", 
+            "Maria (Green)", 
+            "Boris (Identity)", 
+            "Vitalii (Communist)"
+        };
         public void Seed(InstantRunoffVoteArray votes, int numOfVotes)
         {
             for(int i = 0; i < numOfVotes; i++)

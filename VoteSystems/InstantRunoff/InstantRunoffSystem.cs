@@ -7,14 +7,14 @@
             InstantRunoffVoteArray workingVotes = new InstantRunoffVoteArray(votes);
             while (!workingVotes.HasWinner())
             {
-                workingVotes.PrintFirstPreferences();
+                Console.WriteLine(workingVotes.FirstPreferencesToString());
                 string candidateToEliminate = workingVotes.GetLeastPopularCandidate();
                 Console.WriteLine($"Candidate to eliminate: {candidateToEliminate}");
                 workingVotes.EliminateCandidate(candidateToEliminate);
                 Console.WriteLine();
             }
 
-            workingVotes.PrintFirstPreferences();
+            Console.WriteLine(workingVotes.FirstPreferencesToString());
             Console.WriteLine($"Winner: {workingVotes.GetMostPopularCandidate()}");
             return workingVotes.GetMostPopularCandidate();
         }

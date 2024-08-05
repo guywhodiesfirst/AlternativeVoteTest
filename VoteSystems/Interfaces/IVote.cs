@@ -2,7 +2,7 @@
 {
     public interface IVote<T>
     {
-        T Bulletin { get; set; }
+        Dictionary<string, T> Bulletin { get; set; }
         string ToString();
     }
 }
